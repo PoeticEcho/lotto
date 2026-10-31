@@ -1,0 +1,56 @@
+name: Deploy 빼고또 to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
+      - name: Build social preview and app icons
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends librsvg2-bin fonts-noto-cjk
+          mkdir -p _site
+          cp index.html favicon.svg manifest.webmanifest .nojekyll _site/
+          rsvg-convert --width=1200 --height=630 og.svg --output=_site/og.png
+          rsvg-convert --width=512 --height=512 favicon.svg --output=_site/icon-512.png
+          rsvg-convert --width=192 --height=192 favicon.svg --output=_site/icon-192.png
+          rsvg-convert --width=32 --height=32 favicon.svg --output=_site/favicon.png
+          test -s _site/og.png
+          test -s _site/favicon.png
+          echo "Built GitHub Pages files:"
+          ls -lh _site/
+
+      - name: Upload GitHub Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4
