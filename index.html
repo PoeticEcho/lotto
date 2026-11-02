@@ -3,41 +3,397 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#f5f7fa">
-<meta name="description" content="빼고또 — 내가 산 자동번호는 싹 빼고, 이번엔 반대로 5게임. QR만 찍으면 끝!">
-<meta name="application-version" content="1.3.1">
+<meta name="theme-color" content="#f6f8fb">
+<meta name="description" content="빼고또 — 내가 산 자동번호는 싹 빼고, 오늘의 기운은 가득 담은 5게임. QR 스캔과 오늘의 추천번호!">
+<meta name="application-version" content="1.4.0">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="빼고또">
 <meta property="og:locale" content="ko_KR">
-<meta property="og:title" content="빼고또 | 내 자동번호 싹 빼고, 이번엔 반대로 5게임!">
-<meta property="og:description" content="이미 산 로또 번호는 싹 제외! 복권 QR을 스캔하고 남은 숫자로 새로운 5게임을 추천받으세요.">
-<meta property="og:url" content="https://poeticecho.github.io/lotto/">
-<meta property="og:image" content="https://poeticecho.github.io/lotto/og.png">
+<meta property="og:title" content="빼고또 | 산 번호 싹 빼고, 오늘의 기운 담아 5게임!">
+<meta property="og:description" content="이미 산 로또 번호는 싹 제외하는 역발상 QR 추천부터 오늘의 기운을 담은 5게임까지!">
+<meta property="og:url" content="https://picklotte.vercel.app/">
+<meta property="og:image" content="https://picklotte.vercel.app/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="빼고또 - 로또 QR로 구매한 번호를 제외하고 새로운 다섯 게임 추천">
+<meta property="og:image:alt" content="빼고또 - QR 역발상 번호 제외 및 오늘의 추천번호 5게임">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="빼고또 · 역발상 로또 추천">
-<meta name="twitter:image" content="https://poeticecho.github.io/lotto/og.png">
+<meta name="twitter:title" content="빼고또 · 역발상 로또 & 오늘의 추천번호">
+<meta name="twitter:image" content="https://picklotte.vercel.app/og.png">
 <meta name="apple-mobile-web-app-title" content="빼고또">
-<link rel="canonical" href="https://poeticecho.github.io/lotto/">
+<link rel="canonical" href="https://picklotte.vercel.app/">
 <link rel="icon" type="image/svg+xml" href="./favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="./favicon.png">
 <link rel="apple-touch-icon" sizes="192x192" href="./icon-192.png">
 <link rel="manifest" href="./manifest.webmanifest">
-<title>빼고또 | 산 번호 싹 빼고 5게임!</title>
+<title>빼고또 | 산 번호 싹 빼고, 오늘의 기운 담아 5게임!</title>
 <style>
-:root{color-scheme:light;--bg:#f5f7fa;--card:#fff;--ink:#1a2639;--muted:#728095;--line:#e5eaf2;--blue:#2467f5;--soft:#eef3ff}
-*{box-sizing:border-box}html,body{height:100%;margin:0}body{background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;letter-spacing:-.035em;-webkit-font-smoothing:antialiased}button,input{font:inherit}button{cursor:pointer;touch-action:manipulation}button:disabled{opacity:.45;cursor:not-allowed}button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #81b1ff;outline-offset:2px}a{color:var(--blue)}[hidden]{display:none!important}
-.app{height:100vh;height:100dvh;max-width:550px;margin:auto;display:flex;flex-direction:column;overflow:hidden;padding:env(safe-area-inset-top) 17px env(safe-area-inset-bottom)}
-.header{flex:none;min-height:69px;display:flex;align-items:center;justify-content:space-between;gap:10px}.brand{display:flex;align-items:center;gap:10px;border:0;background:transparent;color:inherit;padding:4px 0;text-align:left}.brand-mark{width:38px;height:38px;border-radius:12px;background:#182b46;color:white;display:grid;place-items:center;font-size:23px;font-weight:800;line-height:1}.brand-name{font-size:20px;font-weight:850;letter-spacing:-.07em;line-height:1.1}.brand-sub{font-size:10px;font-weight:650;color:#8590a0;letter-spacing:.045em;margin-top:3px}.home-link{border:0;background:transparent;font-size:12px;font-weight:750;color:#708196;padding:9px 3px}.screen{display:none;min-height:0;flex:1;flex-direction:column}.screen.active{display:flex}
-.primary,.secondary{border-radius:14px;min-height:48px;padding:11px 13px;display:inline-flex;justify-content:center;align-items:center;gap:7px;font-size:14px;font-weight:800;letter-spacing:-.035em}.primary{border:1px solid var(--blue);background:var(--blue);color:white}.secondary{border:1px solid #dce4ef;background:white;color:#2b4056}.text-button{border:0;background:transparent;color:#66788e;font-size:12px;font-weight:750;padding:10px}.action-row{display:flex;gap:9px}.action-row>button{flex:1;min-width:0}.footnote{flex:none;color:#8996a5;font-size:10.5px;line-height:1.35;text-align:center;margin:8px 0 7px}
-/* One-time introduction */
-.intro{justify-content:center;gap:0;padding-bottom:24px}.intro-kicker{color:var(--blue);font-size:12px;font-weight:800;background:var(--soft);border-radius:99px;padding:7px 11px;align-self:flex-start;margin-bottom:17px}.intro h1{font-size:clamp(28px,8vw,41px);font-weight:900;line-height:1.22;letter-spacing:-.07em;margin:0}.intro h1 em{font-style:normal;color:var(--blue)}.intro-copy{color:#6c7a8e;font-size:14px;line-height:1.7;margin:14px 0 23px}.intro-steps{border:1px solid var(--line);background:white;border-radius:19px;padding:17px 18px;display:grid;gap:15px;margin-bottom:22px}.intro-step{display:flex;align-items:center;gap:12px;font-size:14px;font-weight:720}.step-icon{width:32px;height:32px;flex:none;display:grid;place-items:center;border-radius:10px;background:var(--soft);color:var(--blue);font-weight:850}.intro #startBtn{width:100%;min-height:54px;font-size:16px}.intro-caveat{margin:12px 0 0;color:#9ba4af;font-size:11px;text-align:center;line-height:1.4}
-/* Scanner: all essentials always within a viewport */
-.view-heading{flex:none;margin:2px 0 12px}.eyebrow{display:inline-block;color:var(--blue);font-size:11px;font-weight:850;margin-bottom:5px}.view-heading h1{font-size:clamp(21px,5.7vw,27px);letter-spacing:-.06em;font-weight:850;line-height:1.25;margin:0 0 3px}.view-heading p{color:var(--muted);font-size:12px;margin:0;line-height:1.4}.scan-view{gap:0}.camera-box{flex:1;display:flex;flex-direction:column;min-height:0;overflow:hidden;background:#122135;border-radius:19px;position:relative}.camera-stage{flex:1;min-height:0;position:relative;overflow:hidden;touch-action:none;background:radial-gradient(circle at 50% 42%,#24405e,#0c182a);cursor:crosshair;user-select:none;-webkit-user-select:none}.camera-stage video{display:block;width:100%;height:100%;object-fit:cover;transform-origin:center center;pointer-events:none}.camera-placeholder{position:absolute;inset:0;display:grid;align-content:center;justify-items:center;gap:12px;color:#c6d4e5;text-align:center;font-size:13px;font-weight:600;padding:20px;pointer-events:none}.camera-placeholder-symbol{font-size:49px;line-height:1;color:white}.finder{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(65%,230px);aspect-ratio:1;border:3px solid rgba(255,255,255,.87);border-radius:17px;box-shadow:0 0 0 1000px rgba(0,0,0,.1);pointer-events:none;display:none}.camera-box.active .finder{display:block}.camera-top{position:absolute;top:11px;left:11px;right:11px;display:flex;justify-content:space-between;gap:7px;pointer-events:none}.live-label,.focus-status{font-size:10px;font-weight:720;background:rgba(14,26,43,.72);padding:7px 8px;color:white;border-radius:8px;backdrop-filter:blur(7px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.live-dot{display:inline-block;width:6px;height:6px;background:#50dc87;border-radius:50%;margin-right:5px}.focus-status{max-width:56%}.camera-caption{position:absolute;bottom:12px;left:0;right:0;color:white;text-shadow:0 1px 3px #222;font-size:11px;text-align:center;pointer-events:none}.focus-ring{display:none;position:absolute;width:60px;height:60px;border:2px solid #fff;border-radius:13px;transform:translate(-50%,-50%);pointer-events:none;animation:pulse .65s ease-out}.focus-ring.show{display:block}@keyframes pulse{from{scale:1.2;opacity:.65}to{scale:1;opacity:1}}.camera-controls{flex:none;display:flex;align-items:center;gap:10px;background:#152741;color:white;padding:7px 11px}.zoom-step{width:32px;height:32px;border:1px solid #36506b;background:#263d59;color:white;border-radius:9px;font-size:18px;font-weight:800}#zoomRange{flex:1;width:0;min-width:0;height:21px;accent-color:#87b1ff;touch-action:pan-x}.zoom-label{min-width:34px;text-align:right;color:white;font-size:11px;font-weight:750;font-variant-numeric:tabular-nums}.camera-help{flex:none;background:#152741;color:#bdcbe0;font-size:10.5px;text-align:center;margin:0;padding:3px 9px 10px;line-height:1.25}
-.scan-actions{flex:none;display:grid;grid-template-columns:1.15fr 1fr;gap:8px;margin-top:11px}.scan-actions button{min-width:0}.scan-more{display:flex;align-items:center;justify-content:space-between;min-height:34px;margin-top:2px}.message{display:none;border-radius:9px;padding:8px 10px;font-size:11.5px;line-height:1.35;margin:4px 0}.message.show{display:block}.message.error{background:#fff0ee;color:#a5433f}.message.ok{background:#ecf8f1;color:#217c51}
-/* Result: large, legible lottery balls; five full games on one screen */
+:root{
+  color-scheme: light;
+  --bg: #f6f8fb;
+  --card: #ffffff;
+  --ink: #162438;
+  --muted: #6a798d;
+  --line: #e3ebf4;
+  --blue: #2467f5;
+  --blue-soft: #edf4ff;
+  --blue-border: #cde0fc;
+  --fortune: #10a37f;
+  --fortune-soft: #eaf7f2;
+  --fortune-border: #caeee1;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{
+  background: var(--bg);
+  color: var(--ink);
+  font-family: system-ui, -apple-system, 'Pretendard', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+  letter-spacing: -0.035em;
+  -webkit-font-smoothing: antialiased;
+}
+button,input{font:inherit}
+button{cursor:pointer;touch-action:manipulation}
+button:disabled{opacity:.45;cursor:not-allowed}
+button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #81b1ff;outline-offset:2px}
+a{color:var(--blue)}
+[hidden]{display:none!important}
+
+.app{
+  height: 100vh;
+  height: 100dvh;
+  max-width: 540px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: env(safe-area-inset-top) 16px env(safe-area-inset-bottom);
+}
+.header{
+  flex: none;
+  min-height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.brand{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  padding: 4px 0;
+  text-align: left;
+}
+.brand-mark{
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  background: #182b46;
+  color: white;
+  display: grid;
+  place-items: center;
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 1;
+  box-shadow: 0 4px 10px rgba(24, 43, 70, 0.15);
+}
+.brand-name{
+  font-size: 20px;
+  font-weight: 850;
+  letter-spacing: -0.07em;
+  line-height: 1.1;
+}
+.brand-sub{
+  font-size: 10px;
+  font-weight: 700;
+  color: #8591a2;
+  letter-spacing: .045em;
+  margin-top: 3px;
+}
+.header-right{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.header-date-pill{
+  font-size: 11px;
+  font-weight: 750;
+  color: #5d6f85;
+  background: #eef3f9;
+  padding: 5px 10px;
+  border-radius: 99px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.pill-clover{font-size:12px;line-height:1}
+.home-link{
+  border: 0;
+  background: #f0f4fa;
+  font-size: 12px;
+  font-weight: 800;
+  color: #4b6079;
+  padding: 7px 11px;
+  border-radius: 99px;
+}
+
+.screen{display:none;min-height:0;flex:1;flex-direction:column}
+.screen.active{display:flex}
+
+.primary,.secondary{
+  border-radius: 14px;
+  min-height: 48px;
+  padding: 11px 13px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+}
+.primary{border:1px solid var(--blue);background:var(--blue);color:white}
+.secondary{border:1px solid #dce4ef;background:white;color:#2b4056}
+.text-button{border:0;background:transparent;color:#66788e;font-size:12px;font-weight:750;padding:10px}
+.footnote{flex:none;color:#8996a5;font-size:10.5px;line-height:1.35;text-align:center;margin:8px 0 7px}
+
+/* =========================================
+   Home Screen: Human-made warm app dashboard
+   ========================================= */
+.home-view{
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 2px 2px 14px;
+  gap: 12px;
+  scrollbar-width: none;
+}
+.home-view::-webkit-scrollbar{display:none}
+
+.home-greeting{
+  flex: none;
+  background: linear-gradient(145deg, #ffffff 0%, #f4f8ff 100%);
+  border: 1px solid #e1ebf7;
+  border-radius: 20px;
+  padding: 15px 16px 14px;
+  box-shadow: 0 4px 18px rgba(36, 103, 245, 0.05);
+}
+.greeting-top{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.greeting-badge{
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: #eef4ff;
+  color: var(--blue);
+  font-size: 11px;
+  font-weight: 800;
+  padding: 4px 9px;
+  border-radius: 99px;
+}
+.greeting-date-pill{
+  font-size: 11px;
+  font-weight: 750;
+  color: #7b8b9f;
+  background: #f0f4fa;
+  padding: 4px 8px;
+  border-radius: 99px;
+}
+.greeting-title{
+  font-size: clamp(21px, 5.7vw, 25px);
+  font-weight: 900;
+  line-height: 1.32;
+  letter-spacing: -0.06em;
+  margin: 0 0 5px;
+  color: #152238;
+}
+.greeting-title .accent-blue{color:var(--blue)}
+.greeting-title .accent-fortune{color:#0d9668}
+.greeting-sub{
+  font-size: 12.5px;
+  color: #6a798d;
+  margin: 0;
+  line-height: 1.45;
+}
+
+/* Two Core Start Menu Cards */
+.menu-cards{
+  display: grid;
+  gap: 12px;
+}
+.menu-card{
+  background: #ffffff;
+  border: 1px solid #e4eaf3;
+  border-radius: 20px;
+  padding: 16px 16px 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  box-shadow: 0 4px 16px rgba(18, 38, 63, 0.04);
+  transition: transform 0.16s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.16s ease, border-color 0.16s ease;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+.menu-card:active{transform:scale(0.985)}
+
+.menu-card.card-qr{
+  border-color: #d6e4fd;
+  background: linear-gradient(180deg, #ffffff 0%, #f9fbff 100%);
+}
+.menu-card.card-qr:hover, .menu-card.card-qr:focus-within{
+  border-color: #9ac2ff;
+  box-shadow: 0 8px 24px rgba(36, 103, 245, 0.1);
+}
+
+.menu-card.card-fortune{
+  border-color: #c9eedf;
+  background: linear-gradient(180deg, #ffffff 0%, #f6fcf9 100%);
+}
+.menu-card.card-fortune:hover, .menu-card.card-fortune:focus-within{
+  border-color: #79ddb8;
+  box-shadow: 0 8px 24px rgba(16, 163, 127, 0.1);
+}
+
+.card-badge-row{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.card-pill{
+  font-size: 11px;
+  font-weight: 850;
+  padding: 4px 9px;
+  border-radius: 99px;
+  letter-spacing: -0.02em;
+}
+.pill-blue{background:#eaf1ff;color:#1e5dd6}
+.pill-emerald{background:#e5f7f0;color:#0b8058}
+.card-emoji{font-size:20px;line-height:1}
+
+.card-text{
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.card-headline{
+  font-size: 18px;
+  font-weight: 850;
+  letter-spacing: -0.05em;
+  margin: 0;
+  color: #132238;
+}
+.card-subtext{
+  font-size: 12.5px;
+  color: #637387;
+  line-height: 1.5;
+  margin: 0;
+}
+.card-subtext strong{color:#1a2b42}
+
+.menu-btn{
+  border: 0;
+  border-radius: 14px;
+  min-height: 48px;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 14.5px;
+  font-weight: 850;
+  letter-spacing: -0.03em;
+  color: white;
+  width: 100%;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.12s ease, filter 0.12s ease;
+}
+.btn-blue{background:linear-gradient(90deg, #2567f5, #1d52c7)}
+.btn-emerald{background:linear-gradient(90deg, #10a37f, #0d8265)}
+.btn-arrow{
+  display: inline-grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.22);
+  font-size: 15px;
+  font-weight: 900;
+  line-height: 1;
+  transition: transform 0.15s ease;
+}
+.menu-btn:hover .btn-arrow, .menu-card:hover .btn-arrow{
+  transform: translateX(3px);
+}
+
+.daily-note-card{
+  background: #ffffff;
+  border: 1px solid #edf1f7;
+  border-radius: 17px;
+  padding: 13px 14px;
+  display: flex;
+  gap: 11px;
+  align-items: flex-start;
+  box-shadow: 0 2px 8px rgba(18, 38, 63, 0.02);
+}
+.note-icon{font-size:18px;line-height:1.1;flex:none;margin-top:1px}
+.note-content{flex:1;min-width:0}
+.note-title{font-size:11.5px;font-weight:800;color:#55667c;margin-bottom:2px}
+.note-text{font-size:12px;color:#728296;margin:0;line-height:1.45}
+
+.home-footnote{
+  flex: none;
+  font-size: 11px;
+  color: #8b98a8;
+  text-align: center;
+  margin: 3px 0 0;
+  line-height: 1.4;
+}
+
+/* =========================================
+   Scanner Screen
+   ========================================= */
+.view-heading{flex:none;margin:2px 0 12px}
+.eyebrow{display:inline-block;color:var(--blue);font-size:11px;font-weight:850;margin-bottom:5px}
+.view-heading h1{font-size:clamp(21px,5.7vw,27px);letter-spacing:-.06em;font-weight:850;line-height:1.25;margin:0 0 3px}
+.view-heading p{color:var(--muted);font-size:12px;margin:0;line-height:1.4}
+.scan-view{gap:0}
+.camera-box{flex:1;display:flex;flex-direction:column;min-height:0;overflow:hidden;background:#122135;border-radius:19px;position:relative}
+.camera-stage{flex:1;min-height:0;position:relative;overflow:hidden;touch-action:none;background:radial-gradient(circle at 50% 42%,#24405e,#0c182a);cursor:crosshair;user-select:none;-webkit-user-select:none}
+.camera-stage video{display:block;width:100%;height:100%;object-fit:cover;transform-origin:center center;pointer-events:none}
+.camera-placeholder{position:absolute;inset:0;display:grid;align-content:center;justify-items:center;gap:12px;color:#c6d4e5;text-align:center;font-size:13px;font-weight:600;padding:20px;pointer-events:none}
+.camera-placeholder-symbol{font-size:49px;line-height:1;color:white}
+.finder{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(65%,230px);aspect-ratio:1;border:3px solid rgba(255,255,255,.87);border-radius:17px;box-shadow:0 0 0 1000px rgba(0,0,0,.1);pointer-events:none;display:none}
+.camera-box.active .finder{display:block}
+.camera-top{position:absolute;top:11px;left:11px;right:11px;display:flex;justify-content:space-between;gap:7px;pointer-events:none}
+.live-label,.focus-status{font-size:10px;font-weight:720;background:rgba(14,26,43,.72);padding:7px 8px;color:white;border-radius:8px;backdrop-filter:blur(7px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.live-dot{display:inline-block;width:6px;height:6px;background:#50dc87;border-radius:50%;margin-right:5px}
+.focus-status{max-width:56%}
+.camera-caption{position:absolute;bottom:12px;left:0;right:0;color:white;text-shadow:0 1px 3px #222;font-size:11px;text-align:center;pointer-events:none}
+.focus-ring{display:none;position:absolute;width:60px;height:60px;border:2px solid #fff;border-radius:13px;transform:translate(-50%,-50%);pointer-events:none;animation:pulse .65s ease-out}
+.focus-ring.show{display:block}
+@keyframes pulse{from{scale:1.2;opacity:.65}to{scale:1;opacity:1}}
+.camera-controls{flex:none;display:flex;align-items:center;gap:10px;background:#152741;color:white;padding:7px 11px}
+.zoom-step{width:32px;height:32px;border:1px solid #36506b;background:#263d59;color:white;border-radius:9px;font-size:18px;font-weight:800}
+#zoomRange{flex:1;width:0;min-width:0;height:21px;accent-color:#87b1ff;touch-action:pan-x}
+.zoom-label{min-width:34px;text-align:right;color:white;font-size:11px;font-weight:750;font-variant-numeric:tabular-nums}
+.camera-help{flex:none;background:#152741;color:#bdcbe0;font-size:10.5px;text-align:center;margin:0;padding:3px 9px 10px;line-height:1.25}
+.scan-actions{flex:none;display:grid;grid-template-columns:1.15fr 1fr;gap:8px;margin-top:11px}
+.scan-actions button{min-width:0}
+.scan-more{display:flex;align-items:center;justify-content:space-between;min-height:34px;margin-top:2px}
+.message{display:none;border-radius:9px;padding:8px 10px;font-size:11.5px;line-height:1.35;margin:4px 0}
+.message.show{display:block}
+.message.error{background:#fff0ee;color:#a5433f}
+.message.ok{background:#ecf8f1;color:#217c51}
+
+/* =========================================
+   Processing & Result Screen
+   ========================================= */
 .result-view .view-heading{margin-bottom:11px}
 .result-head{flex:none;display:flex;justify-content:space-between;gap:8px;align-items:center}
 .result-head .eyebrow{margin-bottom:4px}
@@ -50,16 +406,14 @@
 .set-num{font-size:12px;font-weight:850;color:var(--blue);background:#eaf1ff;padding:5px 8px;border-radius:8px;white-space:nowrap}
 .balls{display:flex;align-items:center;justify-content:flex-end;gap:clamp(3px,1.2vw,7px);min-width:0}
 .ball{width:clamp(28px,8vw,38px);height:clamp(28px,8vw,38px);border-radius:50%;display:grid;place-items:center;flex:none;color:white;font-weight:850;font-size:clamp(11px,3vw,14px);letter-spacing:0;box-shadow:inset 0 -3px 0 #00000018,0 1px 2px #172d471b;font-variant-numeric:tabular-nums}
-/* Labels move above the balls, using width previously wasted beside the game label. */
 .result-card .game{flex-direction:column;align-items:stretch;justify-content:center;gap:2px;padding:3px 7px}
 .result-card .set-num{align-self:flex-start;font-size:11px;line-height:1.1;padding:3px 7px;border-radius:6px}
 .result-card .balls{align-self:stretch;justify-content:center;gap:clamp(3px,1.35vw,7px)}
 .result-card .ball{width:min(12.1vw,50px);height:min(12.1vw,50px);font-size:clamp(15px,4.35vw,20px);font-weight:900}
-/* High contrast text is important for older users. */
 .n1{background:#e2b83d;color:#17283e}.n2{background:#236dae}.n3{background:#c94e53}.n4{background:#657185}.n5{background:#218460}
 .result-actions{flex:none;display:grid;grid-template-columns:1.12fr 1fr;gap:9px;margin-top:11px}
 .result-note{text-align:center;font-size:10.5px;color:#8794a5;margin:9px 0 4px;line-height:1.3}
-/* Short delight animation after a valid QR scan; never blocks a new scan. */
+
 .processing-view{justify-content:center;align-items:center;gap:0;padding-bottom:12px}
 .processing-card{width:100%;background:white;border:1px solid #e5eafa;border-radius:24px;padding:35px 22px 28px;text-align:center;box-shadow:0 14px 38px #24456a0a}
 .processing-kicker{font-size:11px;letter-spacing:.055em;font-weight:850;color:#2467f5;margin-bottom:12px}
@@ -76,12 +430,81 @@
 .result-card .game{animation:game-in .35s cubic-bezier(.2,.8,.2,1) both}
 .result-card .game:nth-child(1){animation-delay:.04s}.result-card .game:nth-child(2){animation-delay:.1s}.result-card .game:nth-child(3){animation-delay:.16s}.result-card .game:nth-child(4){animation-delay:.22s}.result-card .game:nth-child(5){animation-delay:.28s}
 @keyframes game-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
-/* Dialogs: optional details, scroll only inside popup */
-.dialog{position:fixed;inset:0;z-index:30;background:#10233a94;display:flex;align-items:flex-end;justify-content:center;padding:15px;padding-bottom:max(15px,env(safe-area-inset-bottom));}.dialog[hidden]{display:none}.dialog-panel{width:min(100%,515px);max-height:min(86dvh,760px);min-height:0;display:flex;flex-direction:column;background:white;border-radius:24px;padding:19px 19px 22px;box-shadow:0 17px 66px #091e3855;overflow:hidden}.dialog-header{display:flex;justify-content:space-between;align-items:center;gap:10px;flex:none;margin-bottom:13px}.dialog-header h2{font-size:20px;font-weight:850;margin:0}.icon-button{width:33px;height:33px;border-radius:10px;border:0;background:#f0f3f8;color:#54657b;font-size:22px}.dialog-content{overflow-y:auto;overscroll-behavior:contain;min-height:0}.dialog-stats{display:flex;gap:8px;margin-bottom:14px}.dialog-stat{background:#f4f7fc;border-radius:12px;padding:10px;flex:1;text-align:center}.dialog-stat b{font-size:20px;display:block}.dialog-stat span{color:#7d8a9a;font-size:10.5px}.dialog .game-list{grid-template-rows:none;gap:8px;display:grid}.dialog .game{min-height:45px}.dialog .set-num{font-size:11px}.dialog .ball{width:clamp(27px,7.7vw,36px);height:clamp(27px,7.7vw,36px);font-size:12px}.modal-caption{color:#6c7e92;font-size:12px;margin:15px 0 8px;font-weight:800}.number-grid{display:grid;grid-template-columns:repeat(9,minmax(0,1fr));gap:5px}.num{min-width:0;aspect-ratio:1;display:grid;place-items:center;font-size:11px;font-weight:800;border:1px solid #e5eaf1;border-radius:7px}.num.excluded{background:#f0f2f6;color:#b5bdc8;text-decoration:line-through}.num.available{background:#eaf2ff;border-color:#d7e6ff;color:#2561d5}.modal-help{color:#7d8b99;font-size:12px;line-height:1.55;margin:0 0 14px}.paste-entry{display:flex;flex-direction:column;gap:10px}.paste-entry input{width:100%;min-width:0;min-height:46px;border-radius:12px;border:1px solid #dae3f0;padding:11px 12px;font-size:13px;background:#f9fbfe}.paste-entry button{width:100%}
-@media(max-height:740px){.header{min-height:58px}.intro{padding-bottom:6px}.intro-kicker{margin-bottom:10px}.intro-copy{margin:9px 0 14px}.intro-steps{padding:12px 14px;gap:10px;margin-bottom:15px}.view-heading{margin-bottom:8px}.scan-actions{margin-top:8px}.scan-actions .primary,.scan-actions .secondary{min-height:43px}.scan-more{min-height:29px}.footnote{margin:5px 0}.result-card{padding:8px;gap:4px}.result-card .game-list{gap:3px}.result-card .game{padding:2px 6px;gap:1px}.result-card .set-num{padding:2px 6px}.result-actions{margin-top:8px}.result-actions .primary,.result-actions .secondary{min-height:43px}.result-note{margin:6px 0 2px}}
-@media(max-height:640px){.intro h1{font-size:26px}.intro-copy{font-size:12px}.result-card-title{display:none}.result-card{gap:0}.view-heading h1{font-size:21px}.camera-help{display:none}.footnote{display:none}.result-note{font-size:10px}.result-card .ball{width:min(12vw,48px);height:min(12vw,48px);font-size:clamp(14px,4.1vw,18px)}.result-card .game{gap:1px}.processing-card{padding:20px 16px}}
-@media(max-width:360px){.app{padding-left:10px;padding-right:10px}.brand-name{font-size:18px}.balls{gap:3px}.result-card .balls{gap:3px}.result-card .ball{width:12.1vw;height:12.1vw;font-size:clamp(14px,4.3vw,17px)}.set-num{padding:5px 6px}.result-card{padding:9px}.view-heading p{font-size:11px}}
-@media(min-width:600px){.app{padding-left:25px;padding-right:25px}.header{min-height:76px}.dialog{align-items:center}}
+
+/* Dialogs */
+.dialog{position:fixed;inset:0;z-index:30;background:#10233a94;display:flex;align-items:flex-end;justify-content:center;padding:15px;padding-bottom:max(15px,env(safe-area-inset-bottom));}
+.dialog[hidden]{display:none}
+.dialog-panel{width:min(100%,515px);max-height:min(86dvh,760px);min-height:0;display:flex;flex-direction:column;background:white;border-radius:24px;padding:19px 19px 22px;box-shadow:0 17px 66px #091e3855;overflow:hidden}
+.dialog-header{display:flex;justify-content:space-between;align-items:center;gap:10px;flex:none;margin-bottom:13px}
+.dialog-header h2{font-size:20px;font-weight:850;margin:0}
+.icon-button{width:33px;height:33px;border-radius:10px;border:0;background:#f0f3f8;color:#54657b;font-size:22px}
+.dialog-content{overflow-y:auto;overscroll-behavior:contain;min-height:0}
+.dialog-stats{display:flex;gap:8px;margin-bottom:14px}
+.dialog-stat{background:#f4f7fc;border-radius:12px;padding:10px;flex:1;text-align:center}
+.dialog-stat b{font-size:20px;display:block}
+.dialog-stat span{color:#7d8a9a;font-size:10.5px}
+.dialog .game-list{grid-template-rows:none;gap:8px;display:grid}
+.dialog .game{min-height:45px}
+.dialog .set-num{font-size:11px}
+.dialog .ball{width:clamp(27px,7.7vw,36px);height:clamp(27px,7.7vw,36px);font-size:12px}
+.modal-caption{color:#6c7e92;font-size:12px;margin:15px 0 8px;font-weight:800}
+.number-grid{display:grid;grid-template-columns:repeat(9,minmax(0,1fr));gap:5px}
+.num{min-width:0;aspect-ratio:1;display:grid;place-items:center;font-size:11px;font-weight:800;border:1px solid #e5eaf1;border-radius:7px}
+.num.excluded{background:#f0f2f6;color:#b5bdc8;text-decoration:line-through}
+.num.available{background:#eaf2ff;border-color:#d7e6ff;color:#2561d5}
+.modal-help{color:#7d8b99;font-size:12px;line-height:1.55;margin:0 0 14px}
+.paste-entry{display:flex;flex-direction:column;gap:10px}
+.paste-entry input{width:100%;min-width:0;min-height:46px;border-radius:12px;border:1px solid #dae3f0;padding:11px 12px;font-size:13px;background:#f9fbfe}
+.paste-entry button{width:100%}
+
+@media(max-height:740px){
+  .header{min-height:58px}
+  .home-view{gap:9px;padding-bottom:10px}
+  .home-greeting{padding:12px 14px 11px}
+  .greeting-title{font-size:20px}
+  .menu-cards{gap:9px}
+  .menu-card{padding:13px 14px 12px;gap:8px}
+  .menu-btn{min-height:44px;font-size:13.5px}
+  .daily-note-card{padding:10px 12px}
+  .view-heading{margin-bottom:8px}
+  .scan-actions{margin-top:8px}
+  .scan-actions .primary,.scan-actions .secondary{min-height:43px}
+  .scan-more{min-height:29px}
+  .footnote{margin:5px 0}
+  .result-card{padding:8px;gap:4px}
+  .result-card .game-list{gap:3px}
+  .result-card .game{padding:2px 6px;gap:1px}
+  .result-card .set-num{padding:2px 6px}
+  .result-actions{margin-top:8px}
+  .result-actions .primary,.result-actions .secondary{min-height:43px}
+  .result-note{margin:6px 0 2px}
+}
+@media(max-height:640px){
+  .result-card-title{display:none}
+  .result-card{gap:0}
+  .view-heading h1{font-size:21px}
+  .camera-help{display:none}
+  .footnote{display:none}
+  .result-note{font-size:10px}
+  .result-card .ball{width:min(12vw,48px);height:min(12vw,48px);font-size:clamp(14px,4.1vw,18px)}
+  .result-card .game{gap:1px}
+  .processing-card{padding:20px 16px}
+}
+@media(max-width:360px){
+  .app{padding-left:10px;padding-right:10px}
+  .brand-name{font-size:18px}
+  .balls{gap:3px}
+  .result-card .balls{gap:3px}
+  .result-card .ball{width:12.1vw;height:12.1vw;font-size:clamp(14px,4.3vw,17px)}
+  .set-num{padding:5px 6px}
+  .result-card{padding:9px}
+  .view-heading p{font-size:11px}
+}
+@media(min-width:600px){
+  .app{padding-left:25px;padding-right:25px}
+  .header{min-height:72px}
+  .dialog{align-items:center}
+}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
 </style>
 <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.js" defer></script>
@@ -89,21 +512,73 @@
 <body>
 <main class="app">
  <header class="header">
-  <button class="brand" type="button" id="brandBtn" aria-label="빼고또 처음으로 돌아가기"><span class="brand-mark" aria-hidden="true">−</span><span><span class="brand-name">빼고또</span><span class="brand-sub" style="display:block">REVERSE LOTTO PICK</span></span></button>
-  <button type="button" class="home-link" id="homeBtn" hidden>⌂ 처음으로</button>
- </header>
- <section id="introScreen" class="screen intro" aria-label="처음 사용 안내">
-  <div class="intro-kicker">역발상 로또 번호 추천</div>
-  <h1>산 번호는 <em>싹 빼고,</em><br>이번엔 반대로<br>5게임!</h1>
-  <p class="intro-copy">“자동으로 산 번호는 하나도 안 맞을 것 같아!”<br>그럼 그 번호들을 빼고 다시 뽑아볼까요?</p>
-  <div class="intro-steps">
-   <div class="intro-step"><span class="step-icon">1</span><span>복권의 QR코드를 스캔해요</span></div>
-   <div class="intro-step"><span class="step-icon">2</span><span>이미 산 번호는 모두 제외해요</span></div>
-   <div class="intro-step"><span class="step-icon">3</span><span>남은 숫자로 5게임을 추천해요</span></div>
+  <button class="brand" type="button" id="brandBtn" aria-label="빼고또 홈으로 이동"><span class="brand-mark" aria-hidden="true">−</span><span><span class="brand-name">빼고또</span><span class="brand-sub" style="display:block">REVERSE LOTTO PICK</span></span></button>
+  <div class="header-right">
+   <div class="header-date-pill" id="headerDatePill" aria-hidden="true"><span class="pill-clover">🍀</span><span id="todayPillDate">11/2 (월)</span></div>
+   <button type="button" class="home-link" id="homeBtn" hidden>⌂ 처음으로</button>
   </div>
-  <button class="primary" id="startBtn" type="button">QR 스캔 시작하기 →</button>
-  <p class="intro-caveat">안내는 처음 한 번만 보여드려요. · 확률을 높이는 방법은 아니에요.</p>
+ </header>
+
+ <!-- Home Screen: Human-crafted Mobile Dashboard with 2 Main Menus -->
+ <section id="homeScreen" class="screen home-view active" aria-label="빼고또 메인 홈">
+  <div class="home-greeting">
+   <div class="greeting-top">
+    <div class="greeting-badge"><span class="greeting-icon">🍀</span><span>오늘의 로또 메이트</span></div>
+    <span class="greeting-date-pill" id="greetingDate">11월 2일 (월)</span>
+   </div>
+   <h1 class="greeting-title">
+    산 번호는 <span class="accent-blue">싹 빼고,</span><br>
+    오늘 기운은 <span class="accent-fortune">가득 채우고!</span>
+   </h1>
+   <p class="greeting-sub">이번 주 1등의 설렘, 어떤 방식으로 뽑아볼까요?</p>
+  </div>
+
+  <div class="menu-cards">
+   <!-- 메뉴 1: QR스캔시작하기 -> -->
+   <div class="menu-card card-qr" id="qrCard" role="button" tabindex="0" aria-label="QR 스캔으로 빼고또 시작하기">
+    <div class="card-badge-row">
+     <span class="card-pill pill-blue">인기 · 자동번호 제외</span>
+     <span class="card-emoji" aria-hidden="true">📷</span>
+    </div>
+    <div class="card-text">
+     <h2 class="card-headline">로또 QR로 빼고또</h2>
+     <p class="card-subtext">내가 산 복권 QR을 비추면, <strong>이미 산 번호는 싹 빼고</strong> 남은 숫자로 새로운 5게임을 추천해요.</p>
+    </div>
+    <button class="menu-btn btn-blue" type="button" id="startQrBtn">
+     <span>QR스캔 시작하기</span>
+     <span class="btn-arrow" aria-hidden="true">→</span>
+    </button>
+   </div>
+
+   <!-- 메뉴 2: 오늘의추천번호 -> -->
+   <div class="menu-card card-fortune" id="todayCard" role="button" tabindex="0" aria-label="오늘의 추천번호 받기">
+    <div class="card-badge-row">
+     <span class="card-pill pill-emerald">오늘의 기운 · 행운의 5게임</span>
+     <span class="card-emoji" aria-hidden="true">🍀</span>
+    </div>
+    <div class="card-text">
+     <h2 class="card-headline">오늘의 추천번호</h2>
+     <p class="card-subtext">로또 용지가 없어도 바로! <strong>오늘 날짜의 맑은 행운 기운</strong>을 듬뿍 담아 부담 없이 뽑아보는 5게임.</p>
+    </div>
+    <button class="menu-btn btn-emerald" type="button" id="startTodayBtn">
+     <span>오늘의 추천번호</span>
+     <span class="btn-arrow" aria-hidden="true">→</span>
+    </button>
+   </div>
+  </div>
+
+  <div class="daily-note-card">
+   <div class="note-icon" aria-hidden="true">💡</div>
+   <div class="note-content">
+    <div class="note-title">오늘의 행운 한 줄</div>
+    <p class="note-text" id="dailyFortuneMsg">“가벼운 마음으로 품은 작은 기대가 일상에 특별한 설렘을 선물합니다. 기분 좋은 하루 되세요!”</p>
+   </div>
+  </div>
+
+  <p class="home-footnote">동행복권 6/45 참고용 · 소소한 즐거움과 설렘으로 가볍게 즐겨주세요 😊</p>
  </section>
+
+ <!-- QR Scanner Screen -->
  <section id="scanScreen" class="screen scan-view" aria-label="QR 스캔 화면">
   <div class="view-heading"><span class="eyebrow">STEP 01 · QR SCAN</span><h1>로또 QR을 비춰주세요</h1><p>인식되면 자동으로 추천번호 5세트를 보여드려요.</p></div>
   <div class="camera-box" id="cameraBox">
@@ -123,25 +598,43 @@
   <p class="footnote">사진·QR 정보는 서버로 업로드하지 않아요.</p>
   <input type="file" accept="image/*" id="photoInput" hidden aria-label="로또 용지 QR 사진 선택">
  </section>
+
+ <!-- Processing Animation Screen -->
  <section id="processingScreen" class="screen processing-view" aria-label="추천 번호 준비 중" aria-busy="true">
   <div class="processing-card" role="status" aria-live="polite" aria-atomic="true">
-   <div class="processing-kicker">QR 인식 완료 ✓</div>
-   <h1>산 번호는 싹 빼고,<br>이번엔 새롭게!</h1>
+   <div class="processing-kicker" id="processingKicker">QR 인식 완료 ✓</div>
+   <h1 id="processingTitle">산 번호는 싹 빼고,<br>이번엔 새롭게!</h1>
    <p id="processingSummary">구매한 번호를 확인했어요.</p>
    <div class="processing-balls" aria-hidden="true"><span class="processing-ball n1">?</span><span class="processing-ball n2">?</span><span class="processing-ball n3">?</span><span class="processing-ball n4">?</span><span class="processing-ball n5">?</span></div>
    <div class="progress-track" aria-hidden="true"><div class="progress-fill" id="processingProgress"></div></div>
    <p class="progress-status" id="processingStatus">QR 번호 확인 완료</p>
-   <p class="processing-hint">기존 번호와 겹치지 않는 5게임을 만들어요.</p>
+   <p class="processing-hint" id="processingHint">기존 번호와 겹치지 않는 5게임을 만들어요.</p>
   </div>
  </section>
+
+ <!-- Result Screen -->
  <section id="resultScreen" class="screen result-view" aria-label="추천 번호 화면">
-  <div class="result-head view-heading"><div><span class="eyebrow">STEP 02 · REVERSE PICK</span><h1>이번엔 이 5게임!</h1><p class="result-meta" id="roundText">기존 번호를 제외했어요.</p></div><button type="button" class="view-source" id="sourceOpenBtn">내 번호 보기 ↗</button></div>
-  <div class="result-card"><p class="result-card-title">빼고또 추천 번호</p><div class="game-list" id="recommendGames" aria-label="추천 5세트"></div></div>
-  <div class="result-actions"><button class="primary" type="button" id="rerollBtn">↻ 다시 추천</button><button class="secondary" type="button" id="copyBtn">▣ 번호 복사</button></div>
-  <p class="result-note">남은 숫자로만 추천 · 당첨 확률을 높이는 방식은 아닙니다.</p>
-  <p class="footnote">이미 구매한 번호는 새 추천 세트에 들어가지 않아요.</p>
+  <div class="result-head view-heading">
+   <div>
+    <span class="eyebrow" id="resultEyebrow">STEP 02 · REVERSE PICK</span>
+    <h1 id="resultHeading">이번엔 이 5게임!</h1>
+    <p class="result-meta" id="roundText">기존 번호를 제외했어요.</p>
+   </div>
+   <button type="button" class="view-source" id="sourceOpenBtn">내 번호 보기 ↗</button>
+  </div>
+  <div class="result-card">
+   <p class="result-card-title" id="resultCardTitle">빼고또 추천 번호</p>
+   <div class="game-list" id="recommendGames" aria-label="추천 5세트"></div>
+  </div>
+  <div class="result-actions">
+   <button class="primary" type="button" id="rerollBtn">↻ 다시 추천</button>
+   <button class="secondary" type="button" id="copyBtn">▣ 번호 복사</button>
+  </div>
+  <p class="result-note" id="resultNote">남은 숫자로만 추천 · 당첨 확률을 높이는 방식은 아닙니다.</p>
+  <p class="footnote" id="resultFootnote">이미 구매한 번호는 새 추천 세트에 들어가지 않아요.</p>
  </section>
 </main>
+
 <div class="dialog" id="sourceDialog" role="dialog" aria-modal="true" aria-labelledby="sourceTitle" hidden>
  <div class="dialog-panel"><div class="dialog-header"><h2 id="sourceTitle">내가 산 번호</h2><button class="icon-button" type="button" data-close="sourceDialog" aria-label="닫기">×</button></div><div class="dialog-content"><p class="modal-help" id="sourceRound"></p><div class="dialog-stats"><div class="dialog-stat"><b id="gameCount">0</b><span>읽은 게임</span></div><div class="dialog-stat"><b id="excludedCount">0</b><span>제외 숫자</span></div><div class="dialog-stat"><b id="availableCount">0</b><span>남은 숫자</span></div></div><div class="game-list" id="sourceGames"></div><p class="modal-caption">1~45 숫자 현황 · 흐린 번호는 제외</p><div class="number-grid" id="numberGrid"></div></div></div>
 </div>
@@ -149,22 +642,67 @@
  <div class="dialog-panel"><div class="dialog-header"><h2 id="pasteTitle">QR 주소 붙여넣기</h2><button class="icon-button" type="button" data-close="pasteDialog" aria-label="닫기">×</button></div><div class="dialog-content"><p class="modal-help">휴대폰 기본 카메라로 로또 QR을 읽었다면, 주소를 복사해서 여기에 붙여넣어 주세요.</p><div class="paste-entry"><input id="qrText" type="url" spellcheck="false" autocomplete="off" placeholder="https://qr.dhlottery.co.kr/?v=..."><button id="pasteBtn" type="button" class="primary">번호 가져오기</button></div><p id="pasteError" class="message error" role="alert"></p></div></div>
 </div>
 <canvas id="canvas" hidden></canvas>
+
 <script>
 (()=>{'use strict';
 const $=id=>document.getElementById(id);
 const video=$('video'), canvas=$('canvas'), ctx=canvas.getContext('2d',{willReadFrequently:true});
 let stream=null,track=null,running=false,starting=false,scanning=false,lastFrame=0,frameNumber=0;
-let games=[],picks=[],available=[],round='',screen='',requestId=0,dialogFocus=null;
-let revealToken=0,revealTimers=[];
+let games=[],picks=[],available=[],round='',screen='home',requestId=0,dialogFocus=null;
+let revealToken=0,revealTimers=[],currentMode='qr';
 const cameraStage=$('cameraStage'),zoomRange=$('zoomRange'),zoomLabel=$('zoomLabel'),focusStatus=$('focusStatus');
 const touches=new Map();let pinch=null,focusTimer=null,zoom=1,zoomMin=1,zoomMax=3,hardwareZoom=false,zoomQueue=Promise.resolve();
 const qrDetector=('BarcodeDetector' in window)?(()=>{try{return new BarcodeDetector({formats:['qr_code']})}catch{return null}})():null;
 const clamp=(value,min,max)=>Math.max(min,Math.min(max,value));
-function getSeen(){try{return localStorage.getItem('ppaego-intro-v1')==='seen'}catch{return false}}
-function markSeen(){try{localStorage.setItem('ppaego-intro-v1','seen')}catch{}}
-function showScreen(next){screen=next;for(const type of ['intro','scan','processing','result'])$(type+'Screen').classList.toggle('active',type===next);$('homeBtn').hidden=!['processing','result'].includes(next);clearMessage();}
+
+function getTodayInfo(){
+  const now = new Date();
+  const month = now.getMonth() + 1;
+  const date = now.getDate();
+  const dayIndex = now.getDay();
+  const dayNames = ['일', '월', '화', '수', '목', '금', '토'];
+  const day = dayNames[dayIndex];
+  const fortunes = [
+    '기분 좋은 기대감이 일상에 활력을 불어넣어 줍니다. 오늘 하루도 행운이 가득하기를!',
+    '한 주의 기분 좋은 시작! 오늘의 맑은 에너지로 행운의 문을 활짝 열어보세요.',
+    '뜻밖의 장소에서 반가운 행운이 미소 짓는 화요일. 긍정의 기운을 가득 담아보세요.',
+    '작은 설렘이 큰 기쁨으로 피어나는 날! 맑은 에너지로 기분 좋게 도전하세요.',
+    '마음이 머무는 곳에 행운의 별이 뜹니다. 오늘의 선택에 좋은 기운이 깃들기를 응원해요.',
+    '주말을 향해 달려가는 금빛 행운의 물결! 오늘의 번호에 행복한 꿈을 실어보세요.',
+    '토요일의 두근거리는 추첨의 날! 이번 주 1등의 주인공은 바로 당신일지도 몰라요.'
+  ];
+  return {
+    month,
+    date,
+    day,
+    fullText: `${month}월 ${date}일 (${day})`,
+    shortText: `${month}/${date} (${day})`,
+    fortune: fortunes[dayIndex % fortunes.length]
+  };
+}
+
+function updateHomeDateAndQuote(){
+  const info = getTodayInfo();
+  if ($('greetingDate')) $('greetingDate').textContent = info.fullText;
+  if ($('todayPillDate')) $('todayPillDate').textContent = info.shortText;
+  if ($('dailyFortuneMsg')) $('dailyFortuneMsg').textContent = `“${info.fortune}”`;
+}
+
+function showScreen(next){
+  screen = next;
+  for (const type of ['home', 'scan', 'processing', 'result']) {
+    const el = $(type + 'Screen') || (type === 'home' ? $('introScreen') : null);
+    if (el) el.classList.toggle('active', type === next);
+  }
+  const isHome = next === 'home';
+  if ($('homeBtn')) $('homeBtn').hidden = isHome;
+  if ($('headerDatePill')) $('headerDatePill').hidden = !isHome;
+  clearMessage();
+}
+
 function message(text,type='error'){const el=$('message');el.textContent=text;el.className='message show '+type;}
 function clearMessage(){const el=$('message');el.className='message';el.textContent='';}
+
 function parseQR(raw){
  const input=String(raw||'').trim();if(!input)throw Error('QR 주소를 입력해 주세요.');
  let value='';
@@ -186,10 +724,12 @@ function parseQR(raw){
  if(!parsed.length)throw Error('로또 6/45 번호를 찾지 못했습니다. 다시 스캔해 주세요.');
  return {round:start[1],games:parsed};
 }
+
 function randomIndex(n){if(n<=1)return 0;if(!globalThis.crypto?.getRandomValues)return Math.floor(Math.random()*n);const range=2**32,limit=range-(range%n),arr=new Uint32Array(1);let x;do{crypto.getRandomValues(arr);x=arr[0]}while(x>=limit);return x%n;}
 function shuffle(items){for(let i=items.length-1;i>0;i--){const j=randomIndex(i+1);[items[i],items[j]]=[items[j],items[i]]}return items;}
 function ball(n){const c=Math.min(5,Math.ceil(n/10));return `<span class="ball n${c}">${String(n).padStart(2,'0')}</span>`;}
 function gameHTML(label,nums){return `<div class="game"><span class="set-num">${label}</span><div class="balls">${nums.map(ball).join('')}</div></div>`;}
+
 function generate(){
  if(available.length<6){message('남은 번호가 6개 미만이라 추천할 수 없습니다.');return false;}
  const counts=new Map(available.map(n=>[n,0]));picks=[];
@@ -199,24 +739,89 @@ function generate(){
  }
  $('recommendGames').innerHTML=picks.map((g,i)=>gameHTML(`${i+1}게임`,g)).join('');return true;
 }
+
 function cancelReveal(){revealToken++;for(const id of revealTimers)clearTimeout(id);revealTimers=[];}
 function queueReveal(fn,delay,token){revealTimers.push(setTimeout(()=>{if(token===revealToken&&screen==='processing')fn()},delay));}
+
+function renderResultUI(){
+  const todayInfo = getTodayInfo();
+  if (currentMode === 'today') {
+    $('resultEyebrow').textContent = "TODAY'S LUCKY PICK · 오늘의 추천";
+    $('resultHeading').textContent = "오늘의 행운 5게임! 🍀";
+    $('roundText').textContent = `${todayInfo.fullText} · 오늘의 기운을 가득 담은 조합`;
+    $('resultCardTitle').textContent = "빼고또 오늘의 추천번호";
+    $('sourceOpenBtn').hidden = true;
+    $('rerollBtn').innerHTML = "↻ 오늘 기운 다시 받기";
+    $('resultNote').textContent = "오늘의 기운으로 뽑은 추천 번호 · 당첨을 보장하지는 않습니다.";
+    $('resultFootnote').textContent = "기분 좋은 행운이 가득한 하루 되세요!";
+  } else {
+    $('resultEyebrow').textContent = "STEP 02 · REVERSE PICK";
+    $('resultHeading').textContent = "이번엔 이 5게임!";
+    $('resultCardTitle').textContent = "빼고또 추천 번호";
+    $('sourceOpenBtn').hidden = false;
+    $('rerollBtn').innerHTML = "↻ 다시 추천";
+    $('resultNote').textContent = "남은 숫자로만 추천 · 당첨 확률을 높이는 방식은 아닙니다.";
+    $('resultFootnote').textContent = "이미 구매한 번호는 새 추천 세트에 들어가지 않아요.";
+  }
+}
+
 function revealRecommendation(bannedCount){
+ currentMode = 'qr';
  cancelReveal();const token=revealToken;
  const reduced=window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+ $('processingKicker').textContent = 'QR 인식 완료 ✓';
+ $('processingTitle').innerHTML = '산 번호는 싹 빼고,<br>이번엔 새롭게!';
  $('processingSummary').textContent=`기존 번호 ${bannedCount}개를 확인했어요.`;
  $('processingStatus').textContent='QR 번호 확인 완료';
  $('processingProgress').style.width='8%';
+ $('processingHint').textContent='기존 번호와 겹치지 않는 5게임을 만들어요.';
  showScreen('processing');
- // The short transition is an intentional visual presentation, not a computational wait.
  const stages=[
   {at:reduced?40:360,percentage:'42%',text:`기존 ${bannedCount}개 번호 제외 완료`},
   {at:reduced?90:970,percentage:'78%',text:`남은 ${available.length}개로 5게임 조합 중`},
   {at:reduced?130:1510,percentage:'100%',text:'새로운 5게임 준비 완료!'}
  ];
  for(const step of stages)queueReveal(()=>{$('processingStatus').textContent=step.text;$('processingProgress').style.width=step.percentage;},step.at,token);
- queueReveal(()=>{if(generate())showScreen('result');},reduced?190:1850,token);
+ queueReveal(()=>{if(generate()){renderResultUI();showScreen('result');}},reduced?190:1850,token);
 }
+
+function startTodayMode(){
+  currentMode = 'today';
+  round = '';
+  games = [];
+  available = Array.from({length: 45}, (_, i) => i + 1);
+  cancelReveal();
+  const token = revealToken;
+  const reduced = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+  const todayInfo = getTodayInfo();
+
+  $('processingKicker').textContent = '오늘의 기운 담기 ✨';
+  $('processingTitle').innerHTML = '오늘의 행운 기운을<br>가득 담는 중 ✨';
+  $('processingSummary').textContent = `${todayInfo.fullText}의 맑은 기운을 모으고 있어요.`;
+  $('processingStatus').textContent = '오늘의 행운 에너지 모으는 중 🍀';
+  $('processingProgress').style.width = '12%';
+  $('processingHint').textContent = '1부터 45까지 기분 좋은 5게임을 조합합니다.';
+  showScreen('processing');
+
+  const stages = [
+    {at: reduced ? 40 : 380, percentage: '45%', text: `${todayInfo.fullText} 행운 기운 조율 중 🍀`},
+    {at: reduced ? 90 : 980, percentage: '80%', text: '1~45 중 기운 좋은 5게임 조합 중 ✨'},
+    {at: reduced ? 130 : 1520, percentage: '100%', text: '오늘의 행운 5게임 완성!'}
+  ];
+  for(const step of stages){
+    queueReveal(() => {
+      $('processingStatus').textContent = step.text;
+      $('processingProgress').style.width = step.percentage;
+    }, step.at, token);
+  }
+  queueReveal(() => {
+    if (generate()) {
+      renderResultUI();
+      showScreen('result');
+    }
+  }, reduced ? 190 : 1850, token);
+}
+
 function applyQR(raw){
  const result=parseQR(raw);const banned=new Set(result.games.flatMap(g=>g.nums));
  const remain=Array.from({length:45},(_,i)=>i+1).filter(n=>!banned.has(n));
@@ -229,6 +834,7 @@ function applyQR(raw){
  $('numberGrid').innerHTML=Array.from({length:45},(_,i)=>i+1).map(n=>`<div class="num ${banned.has(n)?'excluded':'available'}">${String(n).padStart(2,'0')}</div>`).join('');
  stopCamera();closeDialogs();revealRecommendation(banned.size);
 }
+
 async function detectCanvas(c){
  if(qrDetector){try{const r=await qrDetector.detect(c);if(r.length)return r[0].rawValue}catch{}}
  if(typeof window.jsQR==='function'){
@@ -301,6 +907,7 @@ for(const ev of ['pointerup','pointercancel','lostpointercapture'])cameraStage.a
 zoomRange.addEventListener('input',e=>requestZoom(Number(e.target.value)));
 $('zoomOutBtn').addEventListener('click',()=>requestZoom(zoom-Math.max(.2,(zoomMax-zoomMin)/12)));
 $('zoomInBtn').addEventListener('click',()=>requestZoom(zoom+Math.max(.2,(zoomMax-zoomMin)/12)));
+
 async function startCamera(){
  if(running||starting){if(running)stopCamera();return;}
  if(screen!=='scan')return;
@@ -316,11 +923,13 @@ async function startCamera(){
  }catch(e){if(newStream&&newStream!==stream)newStream.getTracks().forEach(t=>t.stop());if(requestId===myId){stopCamera();message('카메라를 사용할 수 없어요. 권한을 확인하거나 사진에서 읽어 주세요.')}}
  finally{if(requestId===myId)starting=false;}
 }
+
 function stopCamera(){
  requestId++;starting=false;running=false;touches.clear();pinch=null;clearTimeout(focusTimer);$('focusRing').classList.remove('show');
  if(stream){stream.getTracks().forEach(t=>t.stop());stream=null}track=null;video.srcObject=null;video.style.transform='none';
  $('cameraPlaceholder').lastElementChild.textContent='카메라를 켜고 복권 QR을 비춰주세요';cameraVisible(false);
 }
+
 async function scanVideo(now){
  if(!running||screen!=='scan')return;if(scanning||now-lastFrame<220){requestAnimationFrame(scanVideo);return;}
  lastFrame=now;if(video.readyState<2){requestAnimationFrame(scanVideo);return;}scanning=true;
@@ -337,14 +946,48 @@ async function scanVideo(now){
  finally{scanning=false;}
  if(running&&screen==='scan')requestAnimationFrame(scanVideo);
 }
+
 function closeDialogs(){for(const d of document.querySelectorAll('.dialog'))d.hidden=true;if(dialogFocus?.isConnected)dialogFocus.focus({preventScroll:true});dialogFocus=null;}
 function openDialog(id){dialogFocus=document.activeElement;$(id).hidden=false;$(id).querySelector('.icon-button').focus({preventScroll:true});}
 for(const d of document.querySelectorAll('.dialog')){d.addEventListener('pointerdown',e=>{if(e.target===d)closeDialogs()});d.querySelector('[data-close]').addEventListener('click',closeDialogs);}
 document.addEventListener('keydown',e=>{const open=[...document.querySelectorAll('.dialog')].find(d=>!d.hidden);if(!open)return;if(e.key==='Escape'){closeDialogs();return;}if(e.key==='Tab'){const eligible=[...open.querySelectorAll('button:not([disabled]),input:not([disabled])')];if(!eligible.length)return;const i=eligible.indexOf(document.activeElement);if(e.shiftKey&&i<=0){e.preventDefault();eligible[eligible.length-1].focus()}else if(!e.shiftKey&&i===eligible.length-1){e.preventDefault();eligible[0].focus()}}});
-function returnHome(){cancelReveal();closeDialogs();stopCamera();round='';games=[];picks=[];available=[];showScreen('scan');startCamera();}
-$('brandBtn').addEventListener('click',()=>{if(screen==='intro')return;returnHome()});
+
+function returnHome(){
+ cancelReveal();
+ closeDialogs();
+ stopCamera();
+ currentMode='';
+ round='';games=[];picks=[];available=[];
+ showScreen('home');
+}
+
+$('brandBtn').addEventListener('click',returnHome);
 $('homeBtn').addEventListener('click',returnHome);
-$('startBtn').addEventListener('click',()=>{markSeen();showScreen('scan');startCamera()});
+
+// 시작 메뉴 1: QR 스캔
+$('startQrBtn').addEventListener('click',()=>{
+ currentMode = 'qr';
+ showScreen('scan');
+ startCamera();
+});
+$('qrCard').addEventListener('click',e=>{
+ if(e.target.closest('#startQrBtn'))return;
+ $('startQrBtn').click();
+});
+$('qrCard').addEventListener('keydown',e=>{
+ if(e.key==='Enter'||e.key===' '){e.preventDefault();$('startQrBtn').click();}
+});
+
+// 시작 메뉴 2: 오늘의 추천번호
+$('startTodayBtn').addEventListener('click',startTodayMode);
+$('todayCard').addEventListener('click',e=>{
+ if(e.target.closest('#startTodayBtn'))return;
+ $('startTodayBtn').click();
+});
+$('todayCard').addEventListener('keydown',e=>{
+ if(e.key==='Enter'||e.key===' '){e.preventDefault();$('startTodayBtn').click();}
+});
+
 $('cameraBtn').addEventListener('click',startCamera);
 $('photoBtn').addEventListener('click',()=>$('photoInput').click());
 $('photoInput').addEventListener('change',async e=>{
@@ -353,23 +996,47 @@ $('photoInput').addEventListener('change',async e=>{
  try{await new Promise((resolve,reject)=>{img.onload=resolve;img.onerror=reject;img.src=url});const qr=await decodeImage(img);if(!qr)throw Error('QR을 찾지 못했어요. QR이 크게 나온 사진을 선택해 주세요.');applyQR(qr)}
  catch(err){message(err.message||'사진을 읽지 못했어요.')}finally{URL.revokeObjectURL(url);e.target.value='';}
 });
+
 $('pasteOpenBtn').addEventListener('click',()=>{$('pasteError').className='message error';$('pasteError').textContent='';openDialog('pasteDialog')});
 $('sourceOpenBtn').addEventListener('click',()=>openDialog('sourceDialog'));
 function applyPasted(){try{applyQR($('qrText').value)}catch(e){$('pasteError').textContent=e.message;$('pasteError').className='message error show'}}
 $('pasteBtn').addEventListener('click',applyPasted);
 $('qrText').addEventListener('keydown',e=>{if(e.key==='Enter')applyPasted()});
-$('rerollBtn').addEventListener('click',generate);
+
+$('rerollBtn').addEventListener('click',()=>{
+ if(currentMode==='today'){
+  available=Array.from({length:45},(_,i)=>i+1);
+  if(generate())renderResultUI();
+ }else{
+  generate();
+ }
+});
+
 $('copyBtn').addEventListener('click',async()=>{
- const content=`빼고또 추천 5게임 (기존 번호 제외)\n${picks.map((p,i)=>`${i+1}게임: ${p.map(n=>String(n).padStart(2,'0')).join(' ')}`).join('\n')}`;
+ const todayInfo=getTodayInfo();
+ const title=currentMode==='today'
+  ?`[빼고또] 오늘의 추천번호 5게임 (${todayInfo.shortText})`
+  :`[빼고또] 추천 5게임 (기존 번호 제외)`;
+ const content=`${title}\n${picks.map((p,i)=>`${i+1}게임: ${p.map(n=>String(n).padStart(2,'0')).join(' ')}`).join('\n')}\nhttps://picklotte.vercel.app/`;
  const label=$('copyBtn'),old=label.textContent;
  try{if(navigator.clipboard?.writeText)await navigator.clipboard.writeText(content);else throw Error('fallback');label.textContent='✓ 복사 완료';}
  catch{const area=document.createElement('textarea');area.value=content;area.style.position='fixed';area.style.opacity='0';document.body.appendChild(area);area.select();try{if(!document.execCommand('copy'))throw Error('copy failed');label.textContent='✓ 복사 완료'}catch{label.textContent='복사 실패'}area.remove()}
  setTimeout(()=>{label.textContent=old},1600);
 });
+
 window.addEventListener('pagehide',stopCamera);
-// Tests can call these without camera permission. No personally identifying data is stored.
-window.__lottoAppTest={parseQR,applyQR,getState:()=>({round,games,picks,available,screen}),resetIntro:()=>{try{localStorage.removeItem('ppaego-intro-v1')}catch{}}};
-if(getSeen()){showScreen('scan');startCamera()}else showScreen('intro');
+
+// Public test interface
+window.__lottoAppTest={
+ parseQR,
+ applyQR,
+ startTodayMode,
+ getState:()=>({round,games,picks,available,screen,currentMode}),
+ resetIntro:()=>{showScreen('home');}
+};
+
+updateHomeDateAndQuote();
+showScreen('home');
 })();
 </script>
 </body>

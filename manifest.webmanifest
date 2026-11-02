@@ -1,11 +1,12 @@
 {
-  "name": "빼고또 - QR 역발상 로또 번호 추천",
+  "name": "빼고또 - 역발상 로또 & 오늘의 추천번호",
   "short_name": "빼고또",
-  "description": "내가 산 자동 로또번호는 싹 제외하고 새 번호 5게임",
+  "description": "내가 산 복권 번호는 싹 빼고, 오늘의 기운을 가득 담은 5게임",
+  "id": "https://picklotte.vercel.app/",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#f5f7fa",
+  "background_color": "#f6f8fb",
   "theme_color": "#182b46",
   "icons": [
     {
