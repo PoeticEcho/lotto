@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://picklotte.vercel.app/og.png" alt="빼고또 — 내가 산 자동번호는 싹 빼고, 오늘의 기운은 가득 담은 5게임!" width="100%" />
+<img src="https://picklotto.vercel.app/og.png" alt="빼고또 — 내가 산 자동번호는 싹 빼고, 오늘의 기운은 가득 담은 5게임!" width="100%" />
 
 # 빼고또 🍀
 ### Reverse Lotto Pick & Daily Fortune
@@ -9,7 +9,7 @@
 
 로또 용지의 QR을 스캔하여 **이미 구매한 번호를 모두 제외하고** 남은 숫자로 새 번호를 만드는 역발상 추천과, 복권이 없어도 **오늘 날짜의 맑은 행운 에너지를 담아 즉시 뽑아보는 오늘의 추천번호**를 제공하는 모바일 웹앱입니다.
 
-[**🎯 빼고또 실행하기 (picklotte.vercel.app)**](https://picklotte.vercel.app/)
+[**🎯 빼고또 실행하기 (picklotto.vercel.app)**](https://picklotto.vercel.app/)
 
 ![Version](https://img.shields.io/badge/version-1.4.0-2467f5?style=flat-square)
 ![Web](https://img.shields.io/badge/platform-Mobile%20Web-182b46?style=flat-square)
@@ -43,7 +43,7 @@
 
 ~~~mermaid
 flowchart TD
-    A["빼고또 메인 홈 (picklotte.vercel.app)"] --> B["메뉴 1: QR 스캔 시작하기"]
+    A["빼고또 메인 홈 (picklotto.vercel.app)"] --> B["메뉴 1: QR 스캔 시작하기"]
     A --> C["메뉴 2: 오늘의 추천번호"]
     
     B --> D["카메라 / 사진 / URL 입력"]
@@ -93,7 +93,7 @@ flowchart TD
 
 - **프런트엔드**: HTML5, CSS3, Vanilla JavaScript (외부 프레임워크 없는 초경량 단일 파일 구성)
 - **QR 엔진**: 브라우저 네이티브 `BarcodeDetector` 우선 활용 + 하위 호환용 `jsQR 1.4.0` CDN
-- **도메인 & 호스팅**: [https://picklotte.vercel.app/](https://picklotte.vercel.app/) / Vercel & GitHub Pages
+- **도메인 & 호스팅**: [https://picklotto.vercel.app/](https://picklotto.vercel.app/) / Vercel & GitHub Pages
 - **개인정보 보호**: 모든 QR 해석과 번호 생성은 사용자의 기기 브라우저 내부에서만 처리되며, 어떠한 서버로도 전송되지 않습니다.
 
 ---

@@ -2,7 +2,7 @@
   "name": "빼고또 - 역발상 로또 & 오늘의 추천번호",
   "short_name": "빼고또",
   "description": "내가 산 복권 번호는 싹 빼고, 오늘의 기운을 가득 담은 5게임",
-  "id": "https://picklotte.vercel.app/",
+  "id": "https://picklotto.vercel.app/",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",

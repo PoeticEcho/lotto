@@ -11,16 +11,16 @@
 <meta property="og:locale" content="ko_KR">
 <meta property="og:title" content="빼고또 | 산 번호 싹 빼고, 오늘의 기운 담아 5게임!">
 <meta property="og:description" content="이미 산 로또 번호는 싹 제외하는 역발상 QR 추천부터 오늘의 기운을 담은 5게임까지!">
-<meta property="og:url" content="https://picklotte.vercel.app/">
-<meta property="og:image" content="https://picklotte.vercel.app/og.png">
+<meta property="og:url" content="https://picklotto.vercel.app/">
+<meta property="og:image" content="https://picklotto.vercel.app/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="빼고또 - QR 역발상 번호 제외 및 오늘의 추천번호 5게임">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="빼고또 · 역발상 로또 & 오늘의 추천번호">
-<meta name="twitter:image" content="https://picklotte.vercel.app/og.png">
+<meta name="twitter:image" content="https://picklotto.vercel.app/og.png">
 <meta name="apple-mobile-web-app-title" content="빼고또">
-<link rel="canonical" href="https://picklotte.vercel.app/">
+<link rel="canonical" href="https://picklotto.vercel.app/">
 <link rel="icon" type="image/svg+xml" href="./favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="./favicon.png">
 <link rel="apple-touch-icon" sizes="192x192" href="./icon-192.png">
@@ -1017,7 +1017,7 @@ $('copyBtn').addEventListener('click',async()=>{
  const title=currentMode==='today'
   ?`[빼고또] 오늘의 추천번호 5게임 (${todayInfo.shortText})`
   :`[빼고또] 추천 5게임 (기존 번호 제외)`;
- const content=`${title}\n${picks.map((p,i)=>`${i+1}게임: ${p.map(n=>String(n).padStart(2,'0')).join(' ')}`).join('\n')}\nhttps://picklotte.vercel.app/`;
+ const content=`${title}\n${picks.map((p,i)=>`${i+1}게임: ${p.map(n=>String(n).padStart(2,'0')).join(' ')}`).join('\n')}\nhttps://picklotto.vercel.app/`;
  const label=$('copyBtn'),old=label.textContent;
  try{if(navigator.clipboard?.writeText)await navigator.clipboard.writeText(content);else throw Error('fallback');label.textContent='✓ 복사 완료';}
  catch{const area=document.createElement('textarea');area.value=content;area.style.position='fixed';area.style.opacity='0';document.body.appendChild(area);area.select();try{if(!document.execCommand('copy'))throw Error('copy failed');label.textContent='✓ 복사 완료'}catch{label.textContent='복사 실패'}area.remove()}
